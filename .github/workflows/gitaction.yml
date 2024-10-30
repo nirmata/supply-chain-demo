@@ -47,5 +47,5 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          ./nctl scan repository -p policies -r resources --details  --publish --audit-as-warn
+          ./nctl scan kubernetes -p policies -r resources --details  --publish --audit-as-warn
           echo "Scan Completed"
