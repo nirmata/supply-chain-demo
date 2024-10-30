@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: goodpod
+spec:
+  initContainers:
+  - name: initcontainer01
+    image: ghcr.io/docker.io/istio/proxyv2
+  containers:
+  - name: container01
+    image: ghcr.io/dummyimagename
+    securityContext:
+      runAsNonRoot: true
