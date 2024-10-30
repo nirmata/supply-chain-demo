@@ -5,7 +5,7 @@ metadata:
 spec:
   initContainers:
   - name: initcontainer01
-    image: ghcr.io/docker.io/istio/proxyv2
+    image: ghcr.io/istio/proxyv2
   containers:
   - name: container01
     image: ghcr.io/dummyimagename
