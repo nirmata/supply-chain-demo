@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: ["main"]
+    branches: ["test"]
   pull_request:
-    branches: ["main"]
+    branches: ["test"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -32,8 +32,8 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: |
-          echo "Downloading and Installing NCTL 4.3.1"
-          wget https://nirmata-downloads.s3.us-east-2.amazonaws.com/nctl/nctl_4.3.1-rc.1/nctl_4.3.1-rc.1_linux_amd64.zip
+          echo "Downloading and Installing NCTL 4.7.1"
+          wget https://nirmata-downloads.s3.us-east-2.amazonaws.com/nctl/nctl_4.7.1-rc.1/nctl_4.7.1-rc.1_linux_amd64.zip
           unzip -o *.zip
           chmod 755 ./nctl
 
