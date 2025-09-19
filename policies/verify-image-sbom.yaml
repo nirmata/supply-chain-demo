@@ -1,0 +1,25 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: verify-image-sbom
+spec:
+  validationFailureAction: enforce
+  background: true
+  rules:
+    - name: verify-sbom
+      match:
+        resources:
+          kinds:
+            - Pod
+      verifyImages:
+        - image: "*"
+          key: "cosign.pub"
+          attestations:
+            - predicateType: "sbom"
+              conditions:
+                - key: "{{sbom.vulnerabilities.critical}}"
+                  operator: Equals
+                  value: 0
+                - key: "{{sbom.vulnerabilities.high}}"
+                  operator: Equals
+                  value: 0
